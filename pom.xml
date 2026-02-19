@@ -3,7 +3,7 @@
     <properties>
   <sonar.organization>namate-c</sonar.organization>
 </properties>
-    name: SonarQube
+name: SonarQube
 on:
   push:
     branches:
