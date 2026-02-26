@@ -146,6 +146,7 @@
 
     <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey> 
     <skipTests>true</skipTests>
+    <sonar.organization>namate-c</sonar.organization>
   </properties>
 
   <dependencyManagement>
