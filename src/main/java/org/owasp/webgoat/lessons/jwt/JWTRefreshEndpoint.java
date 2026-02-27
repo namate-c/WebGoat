@@ -103,9 +103,10 @@ public class JWTRefreshEndpoint extends AssignmentEndpoint {
     if (token == null) {
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
+    SecretKey key = Keys.hmacShaKeyFor(JWT_PASSWORD.getBytes(StandardCharsets.UTF_8));
     try {
-      Jwt jwt = Jwts.parserBuilder().setSigningKey(JWT_PASSWORD).build().parseClaimsJws(token.replace("Bearer ", ""));
-      Claims claims = (Claims) jwt.getBody();
+      Jws<Claims> jws = Jwts.parser().verifyWith(key).build().parseSignedClaims(token.replace("Bearer ", ""));
+      Claims claims = (Claims) jws.getBody();
       String user = (String) claims.get("user");
       if ("Tom".equals(user)) {
         if ("none".equals(jwt.getHeader().get("alg"))) {
