@@ -150,7 +150,12 @@
 
   <dependencyManagement>
     <dependencies>
-
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+        <version>2.7.1</version>
+      </dependency>
+        
       <dependency>
         <groupId>org.ow2.asm</groupId>
         <artifactId>asm</artifactId>
